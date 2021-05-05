@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">EulerityProject</string>
+    <string name="loading_images">Loading images…</string>
+    <string name="select_image">Select an image</string>
+    <string name="failure">Something went wrong.</string>
+    <string name="no_tool_selected">No tool selected</string>
+    <string name="drawing">Drawing…</string>
+    <string name="erasing">Erasing…</string>
+    <string name="done">Done</string>
+    <string name="upload">Upload</string>
+    <string name="upload_successful">Upload successful!</string>
+
+    <!--Tools-->
+    <string name="label_undo">Undo</string>
+    <string name="label_redo">Redo</string>
+    <string name="label_brush">Brush</string>
+    <string name="label_emoji">Emoji</string>
+    <string name="label_sticker">Sticker</string>
+    <string name="label_eraser">Eraser</string>
+    <string name="label_text">Text</string>
+    <string name="label_filter">Filter</string>
+    <string name="label_clear">Clear</string>
+
+    <!--Properties-->
+    <string name="opacity">Opacity</string>
+    <string name="brush_size">Brush size</string>
+
+</resources>
