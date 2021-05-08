@@ -163,55 +163,55 @@ public class EditorActivity extends AppCompatActivity implements EditorToolListe
             case TEXT:
                 showDialogFragment(addTextFragmentDialog);
                 break;
-            case GRAYSCALE_FILTER:
+            case GRAYSCALE:
                 (new AsyncFilterApplication(BitmapFilter::applyGrayscale)).execute();
                 break;
-            case VIGNETTE_FILTER:
+            case VIGNETTE:
                 (new AsyncFilterApplication(BitmapFilter::applyVignette)).execute();
                 break;
-            case SEPIA_FILTER:
+            case SEPIA:
                 (new AsyncFilterApplication(BitmapFilter::applySepia)).execute();
                 break;
-            case INVERT_FILTER:
+            case INVERT:
                 (new AsyncFilterApplication(BitmapFilter::applyColorInversion)).execute();
                 break;
-            case BRIGHTNESS_FILTER:
+            case BRIGHTNESS:
                 valuePickerFragmentDialog.setMinMax(getString(R.string.brightness_value_label), -255, 255, (val) -> {
                     (new AsyncFilterApplication((b) -> BitmapFilter.applyBrightness(b, val))).execute();
                 });
                 showDialogFragment(valuePickerFragmentDialog);
                 break;
-            case CONTRAST_FILTER:
+            case CONTRAST:
                 valuePickerFragmentDialog.setMinMax(getString(R.string.contrast_value_label), -100, 100, (val) -> {
                     (new AsyncFilterApplication((b) -> BitmapFilter.applyContrast(b, val))).execute();
                 });
                 showDialogFragment(valuePickerFragmentDialog);
                 break;
-            case SATURATION_FILTER:
+            case SATURATION:
                 valuePickerFragmentDialog.setMinMax(getString(R.string.saturation_value_label),  0, 200, (val) -> {
                     (new AsyncFilterApplication((b) -> BitmapFilter.applySaturation(b, val))).execute();
                 });
                 showDialogFragment(valuePickerFragmentDialog);
                 break;
-            case HUE_FILTER:
+            case HUE:
                 valuePickerFragmentDialog.setMinMax(getString(R.string.hue_value_label),  0, 360, (val) -> {
                     (new AsyncFilterApplication((b) -> BitmapFilter.applyHue(b, val))).execute();
                 });
                 showDialogFragment(valuePickerFragmentDialog);
                 break;
-            case TINT_FILTER:
+            case TINT:
                 showDialogFragment(colorPickerFragmentDialog);
                 break;
-            case ROTATE_LEFT_FILTER:
+            case ROTATE_LEFT:
                 (new AsyncFilterApplication((b) -> BitmapFilter.applyRotation(b, -90))).execute();
                 break;
-            case ROTATE_RIGHT_FILTER:
+            case ROTATE_RIGHT:
                 (new AsyncFilterApplication((b) -> BitmapFilter.applyRotation(b, 90))).execute();
                 break;
-            case FLIP_HORIZONTAL_FILTER:
+            case FLIP_HORIZONTAL:
                 (new AsyncFilterApplication((b) -> BitmapFilter.applyFlip(b, true, false))).execute();
                 break;
-            case FLIP_VERTICAL_FILTER:
+            case FLIP_VERTICAL:
                 (new AsyncFilterApplication((b) -> BitmapFilter.applyFlip(b, false, true))).execute();
                 break;
         }
