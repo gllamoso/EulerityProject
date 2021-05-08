@@ -11,8 +11,8 @@ public enum FilterType {
     SATURATION,
     HUE,
     TINT,
-    ROTATE_RIGHT,
     ROTATE_LEFT,
+    ROTATE_RIGHT,
     FLIP_HORIZONTAL,
     FLIP_VERTICAL
 }

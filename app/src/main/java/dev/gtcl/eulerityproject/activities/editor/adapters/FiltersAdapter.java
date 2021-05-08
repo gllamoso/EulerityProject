@@ -37,8 +37,8 @@ public class FiltersAdapter extends ListAdapter<FiltersAdapter.FilterItem, Filte
         list.add(new FilterItem(R.drawable.ic_tune, R.string.filter_saturation, FilterType.SATURATION));
         list.add(new FilterItem(R.drawable.ic_tune, R.string.filter_hue, FilterType.HUE));
         list.add(new FilterItem(R.drawable.ic_tune, R.string.filter_tint, FilterType.TINT));
-        list.add(new FilterItem(R.drawable.ic_rotate_right, R.string.filter_rotate_right, FilterType.ROTATE_RIGHT));
         list.add(new FilterItem(R.drawable.ic_rotate_left, R.string.filter_rotate_left, FilterType.ROTATE_LEFT));
+        list.add(new FilterItem(R.drawable.ic_rotate_right, R.string.filter_rotate_right, FilterType.ROTATE_RIGHT));
         list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_flip_horizontal, FilterType.FLIP_HORIZONTAL));
         list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_flip_vertical, FilterType.FLIP_VERTICAL));
         submitList(list);
