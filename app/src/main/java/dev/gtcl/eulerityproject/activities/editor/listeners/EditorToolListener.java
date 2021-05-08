@@ -1,7 +1,7 @@
 package dev.gtcl.eulerityproject.activities.editor.listeners;
 
-import dev.gtcl.eulerityproject.activities.editor.ToolType;
+import dev.gtcl.eulerityproject.activities.editor.FilterType;
 
 public interface EditorToolListener {
-    void onItemSelected(ToolType toolType);
+    void onItemSelected(FilterType filterType);
 }

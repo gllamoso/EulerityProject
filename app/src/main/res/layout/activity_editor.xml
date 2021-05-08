@@ -15,7 +15,7 @@
             android:id="@+id/editor_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            app:title="@string/no_tool_selected"
+            app:title="@string/apply_filters"
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:menu="@menu/edit_menu"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -30,8 +30,8 @@
         android:background="@android:color/black"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <ja.burhanrashid52.photoeditor.PhotoEditorView
-            android:id="@+id/photo_editor_view"
+        <ImageView
+            android:id="@+id/editor_image"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/editor_tools_rv"
@@ -76,18 +76,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/item_editing_tool"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/filters_rv"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@color/tool_bg"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="@+id/editor_tools_rv"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/editor_tools_rv"
             tools:listitem="@layout/item_filter"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

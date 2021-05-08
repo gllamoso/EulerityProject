@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/color_picker_color"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:background="@color/black"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/color_picker_red_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/red_label"
+        android:textColor="@android:color/holo_red_dark"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"/>
+
+    <SeekBar
+        android:id="@+id/color_picker_seekbar_red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="255"
+        android:thumbTint="@android:color/holo_red_dark"
+        android:progressTint="@android:color/holo_red_dark"/>
+
+    <TextView
+        android:id="@+id/color_picker_green_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/green_label"
+        android:textColor="@android:color/holo_green_dark"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"/>
+
+    <SeekBar
+        android:id="@+id/color_picker_seekbar_green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="255"
+        android:thumbTint="@android:color/holo_green_dark"
+        android:progressTint="@android:color/holo_green_dark"/>
+
+    <TextView
+        android:id="@+id/color_picker_blue_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/blue_label"
+        android:textColor="@android:color/holo_blue_dark"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"/>
+
+    <SeekBar
+        android:id="@+id/color_picker_seekbar_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="255"
+        android:thumbTint="@android:color/holo_blue_dark"
+        android:progressTint="@android:color/holo_blue_dark"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/color_picker_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/color_picker_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/done"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

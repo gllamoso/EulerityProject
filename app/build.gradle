@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "dev.gtcl.eulerityproject"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -46,7 +46,4 @@ dependencies {
 
     // Glide for images
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-
-    // PhotoEditor
-    implementation 'com.burhanrashid52:photoeditor:1.1.1'
 }

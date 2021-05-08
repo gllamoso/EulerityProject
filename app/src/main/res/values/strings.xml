@@ -1,28 +1,52 @@
 <resources>
     <string name="app_name">EulerityProject</string>
+
+    <!--Splash Screen-->
     <string name="loading_images">Loading images…</string>
+
+    <!--Image List-->
     <string name="select_image">Select an image</string>
-    <string name="failure">Something went wrong.</string>
-    <string name="no_tool_selected">No tool selected</string>
-    <string name="drawing">Drawing…</string>
-    <string name="erasing">Erasing…</string>
-    <string name="done">Done</string>
+
+    <!--Editor-->
+    <string name="apply_filters">Apply Filters</string>
     <string name="upload">Upload</string>
+    <string name="clear">Clear</string>
     <string name="upload_successful">Upload successful!</string>
 
-    <!--Tools-->
-    <string name="label_undo">Undo</string>
-    <string name="label_redo">Redo</string>
-    <string name="label_brush">Brush</string>
-    <string name="label_emoji">Emoji</string>
-    <string name="label_sticker">Sticker</string>
-    <string name="label_eraser">Eraser</string>
-    <string name="label_text">Text</string>
-    <string name="label_filter">Filter</string>
-    <string name="label_clear">Clear</string>
+    <!--Add Text-->
+    <string name="add_text">Add text…</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="color">Color</string>
+    <string name="text_size">Text Size: %d</string>
 
-    <!--Properties-->
-    <string name="opacity">Opacity</string>
-    <string name="brush_size">Brush size</string>
+    <!--Color Picker-->
+    <string name="red_label">Red: %d</string>
+    <string name="green_label">Green: %d</string>
+    <string name="blue_label">Blue: %d</string>
+
+    <!--Value Picker-->
+    <string name="brightness_value_label">Brightness</string>
+    <string name="contrast_value_label">Contrast</string>
+    <string name="saturation_value_label">Saturation</string>
+    <string name="hue_value_label">Hue</string>
+
+    <!--Filters-->
+    <string name="filter_text">Add Text</string>
+    <string name="filter_grayscale">Grayscale Filter</string>
+    <string name="filter_vignette">Vignette Filter</string>
+    <string name="filter_sepia">Sepia Filter</string>
+    <string name="filter_invert">Invert Filter</string>
+    <string name="filter_brightness">Brightness Filter</string>
+    <string name="filter_contrast">Contrast Filter</string>
+    <string name="filter_saturation">Saturation Filter</string>
+    <string name="filter_hue">Hue Filter</string>
+    <string name="filter_tint">Tint Filter</string>
+    <string name="filter_rotate_right">Rotate Right</string>
+    <string name="filter_rotate_left">Rotate Left</string>
+    <string name="filter_flip_horizontal">Flip Horizontally</string>
+    <string name="filter_flip_vertical">Flip Vertically</string>
+
+    <!--Misc-->
 
 </resources>
