@@ -5,12 +5,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import dev.gtcl.eulerityproject.BitmapFilter;
 import dev.gtcl.eulerityproject.DrawableImageView;
 import dev.gtcl.eulerityproject.R;
+import dev.gtcl.eulerityproject.Util;
 import dev.gtcl.eulerityproject.activities.editor.SetTextFragmentDialog;
 import dev.gtcl.eulerityproject.activities.editor.ColorPickerFragmentDialog;
 import dev.gtcl.eulerityproject.activities.editor.PaintOptionsFragmentDialog;
@@ -51,7 +51,6 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
@@ -164,10 +163,10 @@ public class EditorActivity extends AppCompatActivity implements EditorToolListe
         toolbar.setTitle(R.string.apply_filters);
         switch (filterType) {
             case TEXT:
-                showDialogFragment(setTextFragmentDialog);
+                Util.showDialogFragment(setTextFragmentDialog, getSupportFragmentManager());
                 break;
             case PAINT:
-                showDialogFragment(paintOptionsFragmentDialog);
+                Util.showDialogFragment(paintOptionsFragmentDialog, getSupportFragmentManager());
                 break;
             case ERASE:
                 drawableImageView.eraseLastDrawing();
@@ -185,10 +184,10 @@ public class EditorActivity extends AppCompatActivity implements EditorToolListe
                 valuePickerFragmentDialog.setMinMax(getString(R.string.saturation_value_label),  0, 200, (val) -> {
                     (new AsyncFilterCreator((b) -> BitmapFilter.applySaturation(b, val))).execute();
                 });
-                showDialogFragment(valuePickerFragmentDialog);
+                Util.showDialogFragment(valuePickerFragmentDialog, getSupportFragmentManager());
                 break;
             case TINT:
-                showDialogFragment(colorPickerFragmentDialog);
+                Util.showDialogFragment(colorPickerFragmentDialog, getSupportFragmentManager());
                 break;
             case ROTATE_LEFT:
                 (new AsyncFilterCreator((b) -> BitmapFilter.applyRotation(b, -90))).execute();
@@ -220,13 +219,6 @@ public class EditorActivity extends AppCompatActivity implements EditorToolListe
                 break;
 
         }
-    }
-
-    private void showDialogFragment(DialogFragment fragment){
-        if(fragment == null || fragment.isAdded()){
-            return;
-        }
-        fragment.show(getSupportFragmentManager(), fragment.getTag());
     }
 
     @Override

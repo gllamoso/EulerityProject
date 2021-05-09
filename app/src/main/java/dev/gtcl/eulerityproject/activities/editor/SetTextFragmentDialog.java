@@ -21,6 +21,7 @@ import androidx.fragment.app.DialogFragment;
 import java.util.Objects;
 
 import dev.gtcl.eulerityproject.R;
+import dev.gtcl.eulerityproject.Util;
 
 public class SetTextFragmentDialog extends DialogFragment implements SeekBar.OnSeekBarChangeListener, ColorPickerFragmentDialog.ColorPickListener {
 
@@ -76,7 +77,7 @@ public class SetTextFragmentDialog extends DialogFragment implements SeekBar.OnS
         done.setOnClickListener((v) -> {
             dismiss();
             String inputText = editText.getText().toString();
-            if(!TextUtils.isEmpty(inputText) && textEditorListener != null){
+            if(textEditorListener != null){
                 textEditorListener.onTextSelected(inputText, color, sb.getProgress() + MIN_TEXT_SIZE);
             }
         });
@@ -85,7 +86,7 @@ public class SetTextFragmentDialog extends DialogFragment implements SeekBar.OnS
 
         colorIndicator.setOnClickListener((v) -> {
             hideKeyboard();
-            colorPickerFragmentDialog.show(getChildFragmentManager(), null);
+            Util.showDialogFragment(colorPickerFragmentDialog, getChildFragmentManager());
         });
     }
 

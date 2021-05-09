@@ -19,6 +19,7 @@ import androidx.fragment.app.DialogFragment;
 import org.jetbrains.annotations.NotNull;
 
 import dev.gtcl.eulerityproject.R;
+import dev.gtcl.eulerityproject.Util;
 import dev.gtcl.eulerityproject.activities.editor.listeners.PaintOptionsListener;
 
 public class PaintOptionsFragmentDialog extends DialogFragment implements SeekBar.OnSeekBarChangeListener, ColorPickerFragmentDialog.ColorPickListener {
@@ -78,7 +79,7 @@ public class PaintOptionsFragmentDialog extends DialogFragment implements SeekBa
 
         cancel.setOnClickListener((v) -> dismiss());
 
-        colorIndicator.setOnClickListener((v) -> colorPickerFragmentDialog.show(getChildFragmentManager(), null));
+        colorIndicator.setOnClickListener((v) -> Util.showDialogFragment(colorPickerFragmentDialog, getChildFragmentManager()));
     }
 
     @Override
