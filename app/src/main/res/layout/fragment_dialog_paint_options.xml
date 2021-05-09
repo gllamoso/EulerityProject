@@ -17,13 +17,14 @@
             android:layout_weight="1"
             android:text="@string/color"
             android:padding="8dp"
+            android:textSize="16sp"
             android:gravity="center_vertical"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             app:cardCornerRadius="4dp">
 
             <View
@@ -41,12 +42,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/size"
+        android:textSize="16sp"
         android:padding="8dp"/>
 
     <SeekBar
         android:id="@+id/paint_options_seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         android:max="60"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout

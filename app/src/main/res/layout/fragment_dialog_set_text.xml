@@ -29,6 +29,7 @@
             android:layout_weight="1"
             android:text="@string/color"
             android:padding="8dp"
+            android:textSize="16sp"
             android:gravity="center_vertical"/>
 
         <androidx.cardview.widget.CardView
@@ -53,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/size"
+        android:textSize="16sp"
         android:padding="8dp"/>
 
     <SeekBar
