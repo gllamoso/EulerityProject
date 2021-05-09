@@ -108,6 +108,7 @@ public class EditorActivity extends AppCompatActivity implements EditorToolListe
         toolbar = findViewById(R.id.editor_toolbar);
         toolbar.setOnMenuItemClickListener(item -> {
             if(item.getItemId() == R.id.menu_item_upload && drawableImageView.getVisibility() == View.VISIBLE){
+                toolbar.setTitle(R.string.apply_filters);
                 upload();
             }
             return true;
