@@ -2,17 +2,17 @@ package dev.gtcl.eulerityproject.activities.editor;
 
 public enum FilterType {
     TEXT,
+    PAINT,
+    ERASE,
     GRAYSCALE,
     VIGNETTE,
-    SEPIA,
     INVERT,
-    BRIGHTNESS,
-    CONTRAST,
     SATURATION,
-    HUE,
     TINT,
     ROTATE_LEFT,
     ROTATE_RIGHT,
     FLIP_HORIZONTAL,
-    FLIP_VERTICAL
+    FLIP_VERTICAL,
+    CLEAR_FILTERS,
+    CLEAR_ALL
 }

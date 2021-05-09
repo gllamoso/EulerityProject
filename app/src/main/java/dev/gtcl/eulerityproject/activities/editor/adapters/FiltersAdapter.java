@@ -28,19 +28,19 @@ public class FiltersAdapter extends ListAdapter<FiltersAdapter.FilterItem, Filte
     private void createList(){
         List<FilterItem> list = new ArrayList<>();
         list.add(new FilterItem(R.drawable.ic_text, R.string.filter_text, FilterType.TEXT));
+        list.add(new FilterItem(R.drawable.ic_brush, R.string.filter_paint, FilterType.PAINT));
+        list.add(new FilterItem(R.drawable.ic_eraser, R.string.filter_erase, FilterType.ERASE));
         list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_grayscale, FilterType.GRAYSCALE));
         list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_vignette, FilterType.VIGNETTE));
-        list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_sepia, FilterType.SEPIA));
         list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_invert, FilterType.INVERT));
-        list.add(new FilterItem(R.drawable.ic_tune, R.string.filter_brightness, FilterType.BRIGHTNESS));
-        list.add(new FilterItem(R.drawable.ic_tune, R.string.filter_contrast, FilterType.CONTRAST));
-        list.add(new FilterItem(R.drawable.ic_tune, R.string.filter_saturation, FilterType.SATURATION));
-        list.add(new FilterItem(R.drawable.ic_tune, R.string.filter_hue, FilterType.HUE));
-        list.add(new FilterItem(R.drawable.ic_tune, R.string.filter_tint, FilterType.TINT));
+        list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_saturation, FilterType.SATURATION));
+        list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_tint, FilterType.TINT));
         list.add(new FilterItem(R.drawable.ic_rotate_left, R.string.filter_rotate_left, FilterType.ROTATE_LEFT));
         list.add(new FilterItem(R.drawable.ic_rotate_right, R.string.filter_rotate_right, FilterType.ROTATE_RIGHT));
-        list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_flip_horizontal, FilterType.FLIP_HORIZONTAL));
-        list.add(new FilterItem(R.drawable.ic_filter, R.string.filter_flip_vertical, FilterType.FLIP_VERTICAL));
+        list.add(new FilterItem(R.drawable.ic_flip_horizontal, R.string.filter_flip_horizontal, FilterType.FLIP_HORIZONTAL));
+        list.add(new FilterItem(R.drawable.ic_flip_vertical, R.string.filter_flip_vertical, FilterType.FLIP_VERTICAL));
+        list.add(new FilterItem(R.drawable.ic_clear_all, R.string.filter_clear_filters, FilterType.CLEAR_FILTERS));
+        list.add(new FilterItem(R.drawable.ic_clear, R.string.filter_clear_all, FilterType.CLEAR_ALL));
         submitList(list);
     }
 

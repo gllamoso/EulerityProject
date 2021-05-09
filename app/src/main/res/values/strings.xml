@@ -10,15 +10,15 @@
     <!--Editor-->
     <string name="apply_filters">Apply Filters</string>
     <string name="upload">Upload</string>
-    <string name="clear">Clear</string>
     <string name="upload_successful">Upload successful!</string>
+    <string name="drawing">Drawing…</string>
 
     <!--Add Text-->
-    <string name="add_text">Add text…</string>
+    <string name="set_text">Set text…</string>
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
     <string name="color">Color</string>
-    <string name="text_size">Text Size: %d</string>
+    <string name="size">Size: %d</string>
 
     <!--Color Picker-->
     <string name="red_label">Red: %d</string>
@@ -32,20 +32,20 @@
     <string name="hue_value_label">Hue</string>
 
     <!--Filters-->
-    <string name="filter_text">Add Text</string>
-    <string name="filter_grayscale">Grayscale Filter</string>
-    <string name="filter_vignette">Vignette Filter</string>
-    <string name="filter_sepia">Sepia Filter</string>
-    <string name="filter_invert">Invert Filter</string>
-    <string name="filter_brightness">Brightness Filter</string>
-    <string name="filter_contrast">Contrast Filter</string>
-    <string name="filter_saturation">Saturation Filter</string>
-    <string name="filter_hue">Hue Filter</string>
-    <string name="filter_tint">Tint Filter</string>
-    <string name="filter_rotate_right">Rotate Right</string>
-    <string name="filter_rotate_left">Rotate Left</string>
-    <string name="filter_flip_horizontal">Flip Horizontally</string>
-    <string name="filter_flip_vertical">Flip Vertically</string>
+    <string name="filter_text">Set text</string>
+    <string name="filter_paint">Add paint</string>
+    <string name="filter_erase">Erase paint</string>
+    <string name="filter_grayscale">Grayscale</string>
+    <string name="filter_vignette">Vignette</string>
+    <string name="filter_invert">Inversion</string>
+    <string name="filter_saturation">Saturation</string>
+    <string name="filter_tint">Tint</string>
+    <string name="filter_rotate_right">Rotate right</string>
+    <string name="filter_rotate_left">Rotate left</string>
+    <string name="filter_flip_horizontal">Flip horizontally</string>
+    <string name="filter_flip_vertical">Flip vertically</string>
+    <string name="filter_clear_filters">Clear filters</string>
+    <string name="filter_clear_all">Clear all</string>
 
     <!--Misc-->
 

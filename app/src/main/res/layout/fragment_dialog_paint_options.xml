@@ -6,18 +6,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/add_text_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/add_text"
-        android:ellipsize="end"
-        android:maxLines="3"
-        android:textSize="20sp"
-        android:inputType="text"
-        android:paddingHorizontal="16dp"
-        android:textColorHint="@android:color/darker_gray" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +27,7 @@
             app:cardCornerRadius="4dp">
 
             <View
-                android:id="@+id/add_text_color_indicator"
+                android:id="@+id/paint_options_color_indicator"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@android:color/black" />
@@ -49,17 +37,17 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/add_text_size_label"
+        android:id="@+id/paint_options_size_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_size"
+        android:text="@string/size"
         android:padding="8dp"/>
 
     <SeekBar
-        android:id="@+id/add_text_seekbar"
+        android:id="@+id/paint_options_seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="120"/>
+        android:max="60"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -67,19 +55,19 @@
         android:padding="8dp">
 
         <Button
-            android:id="@+id/add_text_cancel"
+            android:id="@+id/paint_options_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/cancel"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/add_text_done"
+            app:layout_constraintEnd_toStartOf="@id/paint_options_done"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/add_text_done"
+            android:id="@+id/paint_options_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"

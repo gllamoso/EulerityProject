@@ -33,6 +33,16 @@ public class ColorPickerFragmentDialog extends DialogFragment implements SeekBar
     private SeekBar sbGreen;
     private SeekBar sbBlue;
 
+    private int red;
+    private int green;
+    private int blue;
+
+    public void setRGB(int red, int green, int blue){
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -63,10 +73,13 @@ public class ColorPickerFragmentDialog extends DialogFragment implements SeekBar
         final Button cancel = view.findViewById(R.id.color_picker_cancel);
         final Button done = view.findViewById(R.id.color_picker_done);
 
-        setColor();
-        setLabel(sbRed, 0);
-        setLabel(sbGreen, 0);
-        setLabel(sbBlue, 0);
+        setColorIndicator(red, green, blue);
+        sbRed.setProgress(red);
+        sbGreen.setProgress(green);
+        sbBlue.setProgress(blue);
+        setLabel(sbRed, red);
+        setLabel(sbGreen, green);
+        setLabel(sbBlue, blue);
         sbRed.setOnSeekBarChangeListener(this);
         sbGreen.setOnSeekBarChangeListener(this);
         sbBlue.setOnSeekBarChangeListener(this);
@@ -74,13 +87,14 @@ public class ColorPickerFragmentDialog extends DialogFragment implements SeekBar
         cancel.setOnClickListener((v) -> dismiss());
         done.setOnClickListener((v) -> {
             if(colorPickListener != null){
-                colorPickListener.onColorPicked(sbRed.getProgress(), sbGreen.getProgress(), sbBlue.getProgress());
+                red = sbRed.getProgress();
+                green = sbGreen.getProgress();
+                blue = sbBlue.getProgress();
+                colorPickListener.onColorSelected(red, green, blue);
             }
             dismiss();
         });
     }
-
-
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
@@ -109,14 +123,14 @@ public class ColorPickerFragmentDialog extends DialogFragment implements SeekBar
                 blueLabel.setText(blueLabelText);
                 break;
         }
-        setColor();
+        setColorIndicator(sbRed.getProgress(), sbGreen.getProgress(), sbBlue.getProgress());
     }
 
-    private void setColor(){
-        colorView.setBackgroundColor(Color.rgb(sbRed.getProgress(), sbGreen.getProgress(), sbBlue.getProgress()));
+    private void setColorIndicator(int red, int green, int blue){
+        colorView.setBackgroundColor(Color.rgb(red, green, blue));
     }
 
     public interface ColorPickListener{
-        void onColorPicked(int r, int g, int b);
+        void onColorSelected(int r, int g, int b);
     }
 }

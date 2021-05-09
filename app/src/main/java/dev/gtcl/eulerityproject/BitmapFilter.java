@@ -1,6 +1,5 @@
 package dev.gtcl.eulerityproject;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -16,9 +15,6 @@ import android.graphics.RadialGradient;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.text.Layout;
-import android.text.StaticLayout;
-import android.text.TextPaint;
 
 import androidx.annotation.ColorInt;
 
@@ -36,7 +32,6 @@ public class BitmapFilter {
         final ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
         p.setColorFilter(f);
         c.drawBitmap(src, 0, 0, p);
-        src.recycle();
         return res;
     }
 
@@ -66,10 +61,10 @@ public class BitmapFilter {
 
         p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         c.drawBitmap(res, rect, rect, p);
-        src.recycle();
         return res;
     }
 
+    // Too slow
     public static Bitmap applySepia(Bitmap src) {
         final int width = src.getWidth();
         final int height = src.getHeight();
@@ -97,10 +92,10 @@ public class BitmapFilter {
                 res.setPixel(x, y, Color.argb(alpha, red, green, blue));
             }
         }
-        src.recycle();
         return res;
     }
 
+    // Somewhat slow
     public static Bitmap applyColorInversion(Bitmap src) {
         final int height = src.getHeight();
         final int width = src.getWidth();
@@ -117,27 +112,24 @@ public class BitmapFilter {
                 res.setPixel(x, y, Color.argb(alpha, red, green, blue));
             }
         }
-        src.recycle();
         return res;
     }
 
+    // Somewhat slow
     // value = [-255, 255]
     public static Bitmap applyBrightness(Bitmap src, int value) {
         final int width = src.getWidth();
         final int height = src.getHeight();
         final Bitmap res = Bitmap.createBitmap(width, height, src.getConfig());
 
-        // scan through all pixels
         for(int x = 0; x < width; ++x) {
             for(int y = 0; y < height; ++y) {
-                // get pixel color
                 final int pixel = src.getPixel(x, y);
                 final int alpha = Color.alpha(pixel);
                 int red = Color.red(pixel);
                 int green = Color.green(pixel);
                 int blue = Color.blue(pixel);
 
-                // increase/decrease each channel
                 red += value;
                 red = Math.max(red, 0);
                 red = Math.min(red, 255);
@@ -150,14 +142,13 @@ public class BitmapFilter {
                 blue = Math.max(blue, 0);
                 blue = Math.min(blue, 255);
 
-                // apply new pixel color to output bitmap
                 res.setPixel(x, y, Color.argb(alpha, red, green, blue));
             }
         }
-        src.recycle();
         return res;
     }
 
+    // Too slow
     // value = [-100, +100]
     public static Bitmap applyContrast(Bitmap src, double value) {
         final int width = src.getWidth();
@@ -177,23 +168,34 @@ public class BitmapFilter {
 
                 int red = Color.red(pixel);
                 red = (int)(((((red / 255.0) - 0.5) * contrast) + 0.5) * 255.0);
-                red = Math.max(red, 0);
-                red = Math.min(red, 255);
+                if(red < 0){
+                    red = 0;
+                }
+                if(red > 255){
+                    red = 255;
+                }
 
                 int green = Color.green(pixel);
                 green = (int)(((((green / 255.0) - 0.5) * contrast) + 0.5) * 255.0);
-                green = Math.max(green, 0);
-                green = Math.min(green, 255);
+                if(green < 0){
+                    green = 0;
+                }
+                if(green > 255){
+                    green = 255;
+                }
 
                 int blue = Color.blue(pixel);
                 blue = (int)(((((blue / 255.0) - 0.5) * contrast) + 0.5) * 255.0);
-                blue = Math.max(blue, 0);
-                blue = Math.min(blue, 255);
+                if(blue < 0){
+                    blue = 0;
+                }
+                if(blue > 255){
+                    blue = 0;
+                }
 
                 res.setPixel(x, y, Color.argb(alpha, red, green, blue));
             }
         }
-        src.recycle();
         return res;
     }
 
@@ -210,10 +212,10 @@ public class BitmapFilter {
         final ColorMatrixColorFilter filter = new ColorMatrixColorFilter(colorMatrix);
         p.setColorFilter(filter);
         c.drawBitmap(src, 0, 0, p);
-        src.recycle();
         return res;
     }
 
+    // Too slow
     // hue = [0, 360]
     public static Bitmap applyHue(Bitmap src, float hue) {
         final int width = src.getWidth();
@@ -229,7 +231,6 @@ public class BitmapFilter {
                 res.setPixel(x,y,Color.HSVToColor(Color.alpha(pixel),hsv));
             }
         }
-        src.recycle();
         return res;
     }
 
@@ -244,46 +245,18 @@ public class BitmapFilter {
 
         final Canvas c = new Canvas(res);
         c.drawBitmap(src, 0, 0, p);
-        src.recycle();
         return res;
     }
 
     public static Bitmap applyRotation(Bitmap src, float degrees) {
         final Matrix matrix = new Matrix();
         matrix.postRotate(degrees);
-        Bitmap res = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
-        src.recycle();
-        return res;
+        return Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
     }
 
     public static Bitmap applyFlip(Bitmap src, boolean horizontal, boolean vertical) {
         final Matrix matrix = new Matrix();
         matrix.preScale(horizontal ? -1 : 1, vertical ? -1 : 1);
-        Bitmap res = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
-        src.recycle();
-        return res;
-    }
-
-    public static Bitmap addText(Context context, Bitmap src, String text, @ColorInt int color, int textSize){
-        final float scale = context.getResources().getDisplayMetrics().density;
-        final int height = src.getHeight();
-        final int width = src.getWidth();
-        final Bitmap res = src.copy(src.getConfig(), true);
-
-        final Rect rect = new Rect(0, 0, width, height/2); // place text on top
-        final RectF rectf = new RectF(rect);
-
-        final Canvas c = new Canvas(res);
-        final TextPaint textPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        textPaint.setColor(color);
-        textPaint.setTextSize((int) (textSize * scale));
-        final StaticLayout textLayout = new StaticLayout(text, textPaint, width, Layout.Alignment.ALIGN_CENTER, 1F, 1F, false);
-
-        c.save();
-        c.translate(rectf.left, rectf.top);
-        textLayout.draw(c);
-        c.restore();
-        src.recycle();
-        return res;
+        return Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
     }
 }

@@ -7,9 +7,4 @@
         android:icon="@drawable/ic_upload"
         app:showAsAction="always"/>
 
-    <item
-        android:title="@string/clear"
-        android:icon="@drawable/ic_restore"
-        app:showAsAction="ifRoom"/>
-
 </menu>
